@@ -65,5 +65,36 @@
 <div style="background:#0056b3;color:white;text-align:center;padding:15px;font-size:16px;">
 © Sanjha Sewa Kendra Bhawanigarh
 </div>
+<script>
+function updateClock() {
+  const now = new Date();
 
+  document.getElementById("liveDate").innerHTML =
+    "📅 " + now.toLocaleDateString("en-IN", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+
+  document.getElementById("liveTime").innerHTML =
+    "🕒 " + now.toLocaleTimeString("en-IN");
+
+  const hour = now.getHours();
+  const status = document.getElementById("officeStatus");
+
+  if (hour >= 9 && hour < 18) {
+    status.innerHTML = "🟢 OFFICE OPEN";
+    status.style.background = "#d4edda";
+    status.style.borderLeft = "6px solid green";
+  } else {
+    status.innerHTML = "🔴 OFFICE CLOSED";
+    status.style.background = "#f8d7da";
+    status.style.borderLeft = "6px solid red";
+  }
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+</script>
 </div>
