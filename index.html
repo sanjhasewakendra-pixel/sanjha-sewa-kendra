@@ -151,3 +151,140 @@ width:90%;
 </a>
 
 </div>
+  <!-- ========================= -->
+<!-- PART 2 -->
+<!-- ========================= -->
+
+<div style="padding:30px;">
+
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;">
+
+<!-- LEFT SIDE -->
+
+<div style="flex:1;min-width:320px;">
+
+<h2 style="color:#0056b3;">📅 Today</h2>
+
+<div id="liveDate"
+style="font-size:20px;font-weight:bold;margin:15px 0;">
+</div>
+
+<div id="liveTime"
+style="font-size:20px;font-weight:bold;">
+</div>
+
+<br>
+
+<h2 style="color:#0056b3;">🕘 Office Timing</h2>
+
+<p style="font-size:18px;line-height:30px;">
+Monday - Saturday<br>
+<b>9:00 AM – 6:00 PM</b><br><br>
+
+Sunday : Closed
+</p>
+
+</div>
+
+<!-- RIGHT SIDE -->
+
+<div style="flex:1;min-width:320px;">
+
+<h2 style="color:#0056b3;">🆕 Our Services</h2>
+
+<div style="display:flex;gap:40px;">
+
+<div style="line-height:36px;font-size:18px;">
+
+✅ Aadhaar Services<br>
+✅ PAN Card Apply<br>
+✅ Passport Services<br>
+✅ Birth Certificate<br>
+✅ Death Certificate
+
+</div>
+
+<div style="line-height:36px;font-size:18px;">
+
+✅ Income Certificate<br>
+✅ Residence Certificate<br>
+✅ Caste Certificate<br>
+✅ EWS Certificate<br>
+✅ Rural Certificate
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr style="margin:35px 0;">
+
+<h2 style="text-align:center;color:#0056b3;">
+📢 Today's Status
+</h2>
+
+<div id="officeStatus"
+style="
+max-width:500px;
+margin:auto;
+padding:18px;
+background:#d4edda;
+border-left:8px solid green;
+border-radius:10px;
+font-size:22px;
+font-weight:bold;
+text-align:center;">
+
+🟢 OFFICE OPEN
+
+</div>
+
+</div>
+
+<script>
+
+function updateClock(){
+
+const now=new Date();
+
+document.getElementById("liveDate").innerHTML=
+"📅 "+now.toLocaleDateString("en-IN",{
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+});
+
+document.getElementById("liveTime").innerHTML=
+"🕒 "+now.toLocaleTimeString("en-IN");
+
+const current=now.getHours()*60+now.getMinutes();
+
+const box=document.getElementById("officeStatus");
+
+if(current>=540 && current<1080){
+
+box.innerHTML="🟢 OFFICE OPEN";
+box.style.background="#d4edda";
+box.style.color="#155724";
+box.style.borderLeft="8px solid green";
+
+}else{
+
+box.innerHTML="🔴 OFFICE CLOSED";
+box.style.background="#f8d7da";
+box.style.color="#721c24";
+box.style.borderLeft="8px solid red";
+
+}
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
+</script>
