@@ -1,283 +1,153 @@
-<div style="padding:30px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<!-- DATE & TIME + STAFF LOGIN -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:20px;
-margin-bottom:30px;
-">
+<title>Sanjha Sewa Kendra Bhawanigarh</title>
 
-<!-- LEFT SIDE -->
+<style>
 
-<div style="flex:1;min-width:280px;">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-<h2 style="color:#0056b3;margin-bottom:15px;">
-📅 Today
-</h2>
+body{
+background:#f2f4f7;
+}
 
-<div id="liveDate"
-style="
-font-size:20px;
-font-weight:bold;
+.container{
+width:95%;
+max-width:1100px;
+margin:25px auto;
+background:#ffffff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 18px rgba(0,0,0,.15);
+}
+
+/* HEADER */
+
+.header{
+background:#0056b3;
+color:#ffffff;
+text-align:center;
+padding:30px 20px;
+}
+
+.header h1{
+font-size:38px;
 margin-bottom:10px;
-color:#333;">
-</div>
+}
 
-<div id="liveTime"
-style="
-font-size:20px;
+.header p{
+font-size:18px;
+margin:8px 0;
+}
+
+.warning{
+color:#FFD700;
+font-size:18px;
 font-weight:bold;
-color:#333;">
-</div>
+}
 
-</div>
+/* OFFICE IMAGE */
 
-<!-- RIGHT SIDE -->
+.banner{
+padding:20px;
+background:#f8f8f8;
+text-align:center;
+}
 
-<div style="flex:1;min-width:280px;text-align:right;">
+.banner img{
+width:100%;
+max-width:1000px;
+height:auto;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
 
-<a href="https://sites.google.com/view/sskbhawanigarh/home"
-target="_blank"
-style="
+/* STAFF LOGIN */
+
+.login{
+padding:25px;
+text-align:center;
+}
+
+.login a{
 display:inline-block;
 background:#0056b3;
-color:white;
+color:#ffffff;
 padding:15px 35px;
 text-decoration:none;
 font-size:18px;
 font-weight:bold;
 border-radius:8px;
-">
+transition:.3s;
+}
+
+.login a:hover{
+background:#003d80;
+}
+
+@media(max-width:768px){
+
+.header h1{
+font-size:28px;
+}
+
+.header p{
+font-size:16px;
+}
+
+.login a{
+width:90%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>SANJHA SEWA KENDRA BHAWANIGARH</h1>
+
+<p>Your One Stop Digital Service Centre</p>
+
+<p class="warning">
+⚠ NO OTHER BRANCH | BEWARE OF FRAUDSTERS
+</p>
+
+</div>
+
+<!-- OFFICE IMAGE -->
+
+<div class="banner">
+
+<img src="office.jpg" alt="Sanjha Sewa Kendra Bhawanigarh">
+
+</div>
+
+<!-- STAFF LOGIN -->
+
+<div class="login">
+
+<a href="https://sites.google.com/view/sskbhawanigarh/home" target="_blank">
 
 🔐 STAFF LOGIN
 
 </a>
 
 </div>
-
-</div>
-
-<hr>
-
-<!-- OFFICE STATUS -->
-
-<h2 style="
-text-align:center;
-color:#0056b3;
-margin:30px 0 20px;">
-📢 Today's Status
-</h2>
-
-<div id="officeStatus"
-style="
-max-width:550px;
-margin:auto;
-padding:18px;
-background:#d4edda;
-border-left:8px solid green;
-border-radius:8px;
-font-size:22px;
-font-weight:bold;
-text-align:center;
-">
-
-🟢 OFFICE OPEN
-
-</div>
-
-</div>
-
-<script>
-
-function updateClock(){
-
-const now=new Date();
-
-document.getElementById("liveDate").innerHTML=
-"📅 "+now.toLocaleDateString("en-IN",{
-weekday:"long",
-day:"numeric",
-month:"long",
-year:"numeric"
-});
-
-document.getElementById("liveTime").innerHTML=
-"🕒 "+now.toLocaleTimeString("en-IN");
-
-const hour=now.getHours();
-const minute=now.getMinutes();
-
-const current=hour*60+minute;
-
-const open=9*60;
-const close=18*60;
-
-const box=document.getElementById("officeStatus");
-
-if(current>=open && current<close){
-
-box.innerHTML="🟢 OFFICE OPEN";
-box.style.background="#d4edda";
-box.style.color="#155724";
-box.style.borderLeft="8px solid green";
-
-}else{
-
-box.innerHTML="🔴 OFFICE CLOSED";
-box.style.background="#f8d7da";
-box.style.color="#721c24";
-box.style.borderLeft="8px solid red";
-
-}
-
-}
-
-updateClock();
-setInterval(updateClock,1000);
-
-</script>
-<!-- ========================= -->
-<!-- PART 2 -->
-<!-- DATE • TIME • STAFF LOGIN • OFFICE STATUS -->
-<!-- ========================= -->
-
-<section style="padding:30px;background:#ffffff;">
-
-    <!-- TOP ROW -->
-
-    <div style="
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-bottom:30px;">
-
-        <!-- LEFT : DATE & TIME -->
-
-        <div style="flex:1;min-width:260px;">
-
-            <h2 style="color:#0056b3;margin-bottom:15px;">
-                📅 Today
-            </h2>
-
-            <div id="liveDate"
-            style="
-            font-size:20px;
-            font-weight:bold;
-            margin-bottom:10px;
-            color:#333;">
-            </div>
-
-            <div id="liveTime"
-            style="
-            font-size:20px;
-            font-weight:bold;
-            color:#333;">
-            </div>
-
-        </div>
-
-        <!-- RIGHT : STAFF LOGIN -->
-
-        <div style="flex:1;min-width:260px;text-align:right;">
-
-            <a href="https://sites.google.com/view/sskbhawanigarh/home"
-            target="_blank"
-            style="
-            display:inline-block;
-            background:#0056b3;
-            color:#ffffff;
-            text-decoration:none;
-            padding:15px 35px;
-            font-size:18px;
-            font-weight:bold;
-            border-radius:8px;">
-
-            🔐 STAFF LOGIN
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <hr style="margin:25px 0;">
-
-    <!-- OFFICE STATUS -->
-
-    <h2 style="
-    text-align:center;
-    color:#0056b3;
-    margin-bottom:20px;">
-
-    📢 Today's Status
-
-    </h2>
-
-    <div id="officeStatus"
-    style="
-    max-width:550px;
-    margin:auto;
-    padding:18px;
-    background:#d4edda;
-    border-left:8px solid green;
-    border-radius:8px;
-    font-size:22px;
-    font-weight:bold;
-    text-align:center;
-    color:#155724;">
-
-    🟢 OFFICE OPEN
-
-    </div>
-
-</section>
-
-<script>
-
-function updateOffice(){
-
-    const now = new Date();
-
-    document.getElementById("liveDate").innerHTML =
-    "📅 " + now.toLocaleDateString("en-IN",{
-        weekday:"long",
-        day:"numeric",
-        month:"long",
-        year:"numeric"
-    });
-
-    document.getElementById("liveTime").innerHTML =
-    "🕒 " + now.toLocaleTimeString("en-IN");
-
-    const current = now.getHours()*60 + now.getMinutes();
-
-    const status = document.getElementById("officeStatus");
-
-    if(current >= 540 && current < 1080){
-
-        status.innerHTML = "🟢 OFFICE OPEN";
-        status.style.background="#d4edda";
-        status.style.color="#155724";
-        status.style.borderLeft="8px solid green";
-
-    }else{
-
-        status.innerHTML = "🔴 OFFICE CLOSED";
-        status.style.background="#f8d7da";
-        status.style.color="#721c24";
-        status.style.borderLeft="8px solid red";
-
-    }
-
-}
-
-updateOffice();
-setInterval(updateOffice,1000);
-
-</script>
