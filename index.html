@@ -1,39 +1,151 @@
-<div style="font-family:Arial,sans-serif;max-width:1000px;margin:auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.2);">
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<!-- HEADER -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div style="background:#0056b3;color:white;text-align:center;padding:25px;">
+<title>Sanjha Sewa Kendra Bhawanigarh</title>
 
-<h1 style="margin:0;">
-SANJHA SEWA KENDRA BHAWANIGARH
-</h1>
+<style>
 
-<p style="font-size:18px;margin-top:10px;">
-Your One Stop Digital Service Centre
-</p>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-<p style="color:#FFD700;font-weight:bold;">
+body{
+background:#f2f4f7;
+}
+
+.container{
+max-width:1100px;
+margin:30px auto;
+background:#ffffff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+/* HEADER */
+
+.header{
+background:#0056b3;
+color:#fff;
+text-align:center;
+padding:30px 20px;
+}
+
+.header h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.header p{
+font-size:18px;
+margin:8px 0;
+}
+
+.warning{
+color:#FFD700;
+font-weight:bold;
+font-size:18px;
+}
+
+/* IMAGE */
+
+.banner{
+padding:20px;
+background:#f7f7f7;
+text-align:center;
+}
+
+.banner img{
+width:100%;
+max-width:1000px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+/* LOGIN BUTTON */
+
+.login{
+text-align:center;
+padding:25px;
+}
+
+.login a{
+
+display:inline-block;
+padding:15px 40px;
+
+background:#0056b3;
+color:#fff;
+
+text-decoration:none;
+
+font-size:18px;
+font-weight:bold;
+
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+.login a:hover{
+
+background:#003f85;
+
+}
+
+@media(max-width:768px){
+
+.header h1{
+font-size:28px;
+}
+
+.header p{
+font-size:16px;
+}
+
+.login a{
+width:90%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>SANJHA SEWA KENDRA BHAWANIGARH</h1>
+
+<p>Your One Stop Digital Service Centre</p>
+
+<p class="warning">
 ⚠ NO OTHER BRANCH | BEWARE OF FRAUDSTERS
 </p>
 
 </div>
 
-<!-- OFFICE IMAGE -->
+<div class="banner">
 
-<div style="padding:15px;background:#f5f5f5;text-align:center;">
-
-<img src="office.jpg"
-style="width:100%;border-radius:10px;">
+<img src="office.jpg" alt="Office">
 
 </div>
 
-<!-- STAFF LOGIN -->
+<div class="login">
 
-<div style="text-align:center;padding:25px;">
-
-<a href="https://sites.google.com/view/sskbhawanigarh/home"
-target="_blank"
-style="background:#0056b3;color:white;padding:15px 35px;text-decoration:none;border-radius:8px;font-size:18px;font-weight:bold;">
+<a href="https://sites.google.com/view/sskbhawanigarh/home" target="_blank">
 
 🔐 STAFF LOGIN
 
@@ -41,63 +153,54 @@ style="background:#0056b3;color:white;padding:15px 35px;text-decoration:none;bor
 
 </div>
 <!-- ========================= -->
-<!-- PART 2 : TODAY STATUS -->
+<!-- TODAY STATUS -->
 <!-- ========================= -->
 
-<div style="background:#ffffff;padding:25px;">
+<div style="padding:30px;">
 
-    <!-- OFFICE IMAGE -->
-
-    <div style="text-align:center;margin-bottom:25px;">
-        <img src="office.jpg"
-             alt="Sanjha Sewa Kendra Bhawanigarh"
-             style="width:100%;max-width:950px;height:auto;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.25);">
-    </div>
-
-    <!-- TODAY STATUS -->
-
-    <h2 style="color:#0056b3;text-align:center;margin-bottom:20px;">
+    <h2 style="text-align:center;color:#0056b3;font-size:30px;margin-bottom:25px;">
         📢 Today's Status
     </h2>
 
     <div id="officeStatus"
          style="
-         max-width:500px;
+         max-width:550px;
          margin:auto;
-         background:#d4edda;
-         color:#155724;
          padding:18px;
-         border-left:6px solid green;
-         border-radius:8px;
-         font-size:22px;
+         border-radius:10px;
+         background:#d4edda;
+         border-left:8px solid green;
+         color:#155724;
+         font-size:24px;
          font-weight:bold;
-         text-align:center;">
+         text-align:center;
+         box-shadow:0 2px 8px rgba(0,0,0,.15);">
 
         🟢 OFFICE OPEN
 
     </div>
 
-    <!-- LIVE DATE -->
-
     <div id="liveDate"
          style="
-         margin-top:20px;
+         margin-top:25px;
          text-align:center;
-         font-size:18px;
-         font-weight:bold;">
+         font-size:20px;
+         font-weight:bold;
+         color:#333;">
     </div>
-
-    <!-- LIVE TIME -->
 
     <div id="liveTime"
          style="
-         margin-top:10px;
+         margin-top:12px;
          text-align:center;
-         font-size:18px;
-         font-weight:bold;">
+         font-size:20px;
+         font-weight:bold;
+         color:#333;">
     </div>
 
 </div>
+
+<hr style="margin:0 30px;">
 
 <script>
 
@@ -106,39 +209,36 @@ function updateOfficeStatus(){
     const now = new Date();
 
     document.getElementById("liveDate").innerHTML =
-    "📅 " + now.toLocaleDateString("en-IN",{
-        weekday:"long",
-        day:"numeric",
-        month:"long",
-        year:"numeric"
-    });
+        "📅 " + now.toLocaleDateString("en-IN",{
+            weekday:"long",
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        });
 
     document.getElementById("liveTime").innerHTML =
-    "🕒 " + now.toLocaleTimeString("en-IN");
+        "🕒 " + now.toLocaleTimeString("en-IN");
 
-    const hour = now.getHours();
-    const minute = now.getMinutes();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-    const current = hour * 60 + minute;
-
-    const open = 9 * 60;
-    const close = 18 * 60;
+    const opening = 9 * 60;
+    const closing = 18 * 60;
 
     const status = document.getElementById("officeStatus");
 
-    if(current >= open && current < close){
+    if(currentMinutes >= opening && currentMinutes < closing){
 
         status.innerHTML = "🟢 OFFICE OPEN";
         status.style.background = "#d4edda";
         status.style.color = "#155724";
-        status.style.borderLeft = "6px solid green";
+        status.style.borderLeft = "8px solid green";
 
     }else{
 
         status.innerHTML = "🔴 OFFICE CLOSED";
         status.style.background = "#f8d7da";
         status.style.color = "#721c24";
-        status.style.borderLeft = "6px solid red";
+        status.style.borderLeft = "8px solid red";
 
     }
 
@@ -149,24 +249,23 @@ setInterval(updateOfficeStatus,1000);
 
 </script>
 <!-- ========================= -->
-<!-- PART 3 : SERVICES & CONTACT -->
+<!-- SERVICES -->
 <!-- ========================= -->
 
-<div style="background:#ffffff;padding:30px;">
+<div style="padding:30px;">
 
-<hr style="margin:30px 0;">
+<hr style="margin-bottom:30px;">
 
-<!-- LATEST UPDATES -->
-
-<h2 style="color:#0056b3;text-align:center;">
+<h2 style="text-align:center;color:#0056b3;font-size:30px;">
 🆕 Latest Updates
 </h2>
 
 <div style="
-max-width:500px;
-margin:auto;
+max-width:550px;
+margin:30px auto;
 font-size:18px;
 line-height:38px;
+color:#333;
 ">
 
 ✅ Aadhaar Services Available<br>
@@ -189,16 +288,16 @@ line-height:38px;
 
 <hr style="margin:35px 0;">
 
-<!-- REQUIRED DOCUMENTS -->
-
-<h2 style="color:#0056b3;text-align:center;">
+<h2 style="text-align:center;color:#0056b3;font-size:30px;">
 📄 Required Documents
 </h2>
 
 <p style="
+text-align:center;
 font-size:18px;
 line-height:34px;
-text-align:center;
+color:#333;
+margin-top:20px;
 ">
 
 Aadhaar Card<br>
@@ -210,22 +309,30 @@ Required Supporting Documents
 
 <hr style="margin:35px 0;">
 
-<!-- CONTACT -->
-
-<h2 style="color:#0056b3;text-align:center;">
+<h2 style="text-align:center;color:#0056b3;font-size:30px;">
 📞 Contact Us
 </h2>
 
-<p style="text-align:center;font-size:20px;font-weight:bold;">
+<p style="
+text-align:center;
+font-size:22px;
+font-weight:bold;
+margin-top:20px;
+">
+
 Sanjha Sewa Kendra Bhawanigarh
+
 </p>
 
-<p style="text-align:center;font-size:18px;">
-Office Timing : <b>9:00 AM – 6:00 PM</b>
-</p>
+<p style="
+text-align:center;
+font-size:18px;
+margin-top:10px;
+">
 
-<p style="text-align:center;font-size:18px;">
-📍 Bhawanigarh, Punjab
+Office Timing :
+<b>9:00 AM – 6:00 PM</b>
+
 </p>
 
 </div>
@@ -236,7 +343,7 @@ Office Timing : <b>9:00 AM – 6:00 PM</b>
 background:#0056b3;
 color:#ffffff;
 text-align:center;
-padding:18px;
+padding:20px;
 font-size:16px;
 ">
 
@@ -246,3 +353,6 @@ All Rights Reserved
 </div>
 
 </div>
+
+</body>
+</html>
