@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sanjhasewakendra-pixel.github.io/sanjha-sewa-kendra/sitemap.xml
