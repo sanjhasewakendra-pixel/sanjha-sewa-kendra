@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Inquiry | Sanjha Sewa Kendra Bhawanigarh</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#1d2939}.wrap{max-width:700px;margin:40px auto;padding:0 18px}.box{background:#fff;border:1px solid #dce4ee;border-radius:12px;padding:28px;box-shadow:0 4px 14px rgba(16,24,40,.08)}h1{color:#073b78;margin-top:0}.sub{color:#667085}.field{margin:16px 0}label{display:block;font-weight:700;margin-bottom:7px}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:7px;font-size:15px}textarea{min-height:120px;resize:vertical}button{width:100%;padding:13px;border:0;border-radius:7px;background:#073b78;color:#fff;font-weight:700;font-size:16px;cursor:pointer}button:disabled{opacity:.6}.back{display:inline-block;margin-bottom:18px;color:#073b78;text-decoration:none;font-weight:700}.msg{margin-top:15px;padding:12px;border-radius:7px;display:none}.success{background:#e7f6ec;color:#16733c}.error{background:#fdecec;color:#b42318}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">← Back to Website</a>
+<div class="box">
+<h1>Customer Inquiry</h1>
+<p class="sub">Sanjha Sewa Kendra Bhawanigarh — send us your requirement and we will contact you.</p>
+<form id="inquiryForm">
+<div class="field"><label for="name">Customer Name *</label><input id="name" name="name" required></div>
+<div class="field"><label for="mobile">Mobile Number *</label><input id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required></div>
+<div class="field"><label for="service">Service Required *</label><select id="service" name="service" required><option value="">Select service</option><option>Aadhaar</option><option>PAN Card</option><option>Voter Card</option><option>Passport</option><option>Birth/Death Certificate</option><option>Income/Caste/Residence/EWS Certificate</option><option>Ayushman Card</option><option>e-Shram/Pension</option><option>Other Digital Service</option></select></div>
+<div class="field"><label for="message">Message / Requirement</label><textarea id="message" name="message" placeholder="Write your requirement..."></textarea></div>
+<button id="submitBtn" type="submit">Submit Inquiry</button>
+<div id="msg" class="msg"></div>
+</form>
+</div>
+</div>
+<script>
+const endpoint='https://script.google.com/macros/s/AKfycbxfza1K5SyI6NWpuKK1s7tgEuclYzMWmOv7ziCwmAoJRtkBogLUW61LG0mU16yCaxJq/exec';
+const form=document.getElementById('inquiryForm'),btn=document.getElementById('submitBtn'),msg=document.getElementById('msg');
+form.addEventListener('submit',async e=>{e.preventDefault();btn.disabled=true;btn.textContent='Submitting...';msg.style.display='none';const data=Object.fromEntries(new FormData(form).entries());try{const r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});const j=await r.json();if(!j.success)throw new Error('Submission failed');msg.className='msg success';msg.textContent='Inquiry submitted successfully. We will contact you soon.';msg.style.display='block';form.reset()}catch(err){msg.className='msg error';msg.textContent='Unable to submit right now. Please call 9056000801.';msg.style.display='block'}finally{btn.disabled=false;btn.textContent='Submit Inquiry'}});
+</script>
+</body>
+</html>
