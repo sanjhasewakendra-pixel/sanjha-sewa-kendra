@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SSK Document Size & Quality Enhancer</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#182230}.wrap{max-width:1050px;margin:auto;padding:24px}.hero{background:#0b4a8b;color:#fff;padding:24px;border-radius:16px}.hero h1{margin:0 0 8px}.card{background:#fff;border:1px solid #d8e0ea;border-radius:14px;padding:20px;margin-top:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin-bottom:14px}label{display:block;font-weight:700;margin-bottom:7px}input,select{width:100%;padding:11px;border:1px solid #c9d3df;border-radius:8px;background:#fff}button{padding:12px 18px;border:0;border-radius:8px;font-weight:700;cursor:pointer}.primary{background:#0b4a8b;color:#fff}.gold{background:#f2c343}.gray{background:#e9eef5}.preview{display:grid;grid-template-columns:1fr 1fr;gap:16px}.box{border:1px solid #d8e0ea;border-radius:12px;padding:12px;margin-top:18px;background:#fff}canvas,img{max-width:100%;height:auto;border:1px solid #ccd5df;background:#fff}.status{font-weight:700;margin-top:12px}.note{font-size:13px;color:#667085;line-height:1.5}@media(max-width:750px){.grid,.preview{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><h1>SSK Document Size & Quality Enhancer</h1><p>Resize genuine document images, improve clarity, and prepare high-quality print files.</p></div>
+<div class="card">
+<div class="grid">
+<div><div class="field"><label>Upload Document Image</label><input id="file" type="file" accept="image/*"></div>
+<div class="field"><label>Document / Output Size</label><select id="size"><option value="aadhar">Aadhaar Size — 85.60 × 54.00 mm</option><option value="pvc">PVC / ID Card — 85.60 × 53.98 mm</option><option value="ayushman">Ayushman Card → Aadhaar/Card Size</option><option value="custom">Any Document → Card Size</option></select></div></div>
+<div><div class="field"><label>Quality Enhancement</label><select id="quality"><option value="light">Light</option><option value="medium" selected>Medium</option><option value="strong">Strong</option></select></div>
+<div class="field"><label>Output Format</label><select id="format"><option value="png">PNG — Lossless / Best Quality</option><option value="jpg">JPG — Maximum Quality</option></select></div></div>
+</div>
+<div><button class="primary" id="process">✨ Enhance + Resize</button> <button class="gold" id="download" disabled>Download</button></div>
+<div id="status" class="status"></div>
+<p class="note">Processing happens locally in your browser. Enhancement uses high-quality resampling, controlled sharpening and contrast adjustment. It does not create or alter identity numbers, QR codes, seals, signatures, photos, or security information. Use the original genuine document image for best results.</p>
+</div>
+<div class="preview"><div class="box"><b>Original Image</b><br><img id="original" style="display:none;margin-top:10px"></div><div class="box"><b>Enhanced Result</b><br><canvas id="canvas" width="2022" height="1276"></canvas></div></div>
+</div>
+<script>
+let source=null,outputBlob=null;const file=document.getElementById('file'),original=document.getElementById('original'),canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d',{willReadFrequently:true}),status=document.getElementById('status');
+file.onchange=()=>{const f=file.files[0];if(!f)return;const url=URL.createObjectURL(f);original.src=url;original.style.display='block';source=new Image();source.onload=()=>status.textContent=`Original: ${source.naturalWidth} × ${source.naturalHeight} px`;source.src=url};
+function dimensions(mode){return mode==='pvc'?[2022,1275]:[2022,1276]}
+function fit(im,w,h){const s=Math.min(w/im.naturalWidth,h/im.naturalHeight);const nw=im.naturalWidth*s,nh=im.naturalHeight*s;return{x:(w-nw)/2,y:(h-nh)/2,w:nw,h:nh}}
+function clamp(v){return Math.max(0,Math.min(255,v))}
+function enhance(level){const data=ctx.getImageData(0,0,canvas.width,canvas.height),d=data.data,copy=new Uint8ClampedArray(d),w=canvas.width,h=canvas.height;const amount=level==='light'?.14:level==='strong'?.42:.28,contrast=level==='light'?1.02:level==='strong'?1.08:1.05;for(let y=1;y<h-1;y++){for(let x=1;x<w-1;x++){const i=(y*w+x)*4;for(let c=0;c<3;c++){const center=copy[i+c],up=copy[i-w*4+c],down=copy[i+w*4+c],left=copy[i-4+c],right=copy[i+4+c],blur=(up+down+left+right)/4;let v=center+amount*(center-blur);v=(v-128)*contrast+128;d[i+c]=clamp(v)}}}ctx.putImageData(data,0,0)}
+document.getElementById('process').onclick=()=>{if(!source){status.textContent='Please upload an image first.';return}const [W,H]=dimensions(document.getElementById('size').value);canvas.width=W;canvas.height=H;ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';const r=fit(source,W,H);ctx.drawImage(source,r.x,r.y,r.w,r.h);enhance(document.getElementById('quality').value);const fmt=document.getElementById('format').value,type=fmt==='png'?'image/png':'image/jpeg';canvas.toBlob(b=>{outputBlob=b;document.getElementById('download').disabled=false;status.textContent=`Ready: ${W} × ${H} px — enhanced and resized.`},type,1.0)};
+document.getElementById('download').onclick=()=>{if(!outputBlob)return;const ext=document.getElementById('format').value,mode=document.getElementById('size').value,a=document.createElement('a');a.href=URL.createObjectURL(outputBlob);a.download='SSK_'+mode+'_enhanced.'+ext;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+</script>
+</body></html>
